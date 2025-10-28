@@ -1,0 +1,345 @@
+/* admin/assets/css/media.css - Media Library Styles */
+
+/* Media Library Styles */
+.media-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.media-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.media-card.selected {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.media-preview {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.media-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.media-card:hover .media-preview img {
+    transform: scale(1.05);
+}
+
+.media-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.media-card:hover .media-overlay {
+    opacity: 1;
+}
+
+.media-size {
+    text-align: right;
+    font-weight: 500;
+}
+
+/* List View Styles */
+.list-view .media-card {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    height: auto;
+}
+
+.list-view .media-preview {
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.list-view .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list-view .card-footer {
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Status Indicators */
+.border-warning {
+    border-left: 4px solid #ffc107 !important;
+}
+
+.border-danger {
+    border-left: 4px solid #dc3545 !important;
+}
+
+/* Upload Area */
+.upload-dropzone {
+    border: 2px dashed #dee2e6;
+    border-radius: 0.5rem;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+    border-color: #007bff;
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.upload-dropzone .dz-message {
+    margin: 0;
+    color: #6c757d;
+}
+
+.upload-dropzone .dz-message .dz-button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+}
+
+/* File Preview in Upload */
+.file-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.file-preview-item {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    text-align: center;
+    background: #f8f9fa;
+}
+
+.file-preview-item img {
+    max-width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.file-preview-icon {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .media-card {
+        margin-bottom: 1rem;
+    }
+    
+    .list-view .media-card {
+        flex-direction: column;
+    }
+    
+    .list-view .media-preview {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .btn-group-sm .btn {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-footer .btn-group {
+        flex-wrap: wrap;
+    }
+    
+    .card-footer .btn {
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Statistics Cards */
+.stats-card {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.small-box {
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.small-box .inner {
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.small-box .icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* Filter Panel */
+.filter-panel {
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-panel .form-group {
+    margin-bottom: 0.75rem;
+}
+
+.filter-panel .form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Bulk Actions */
+.bulk-actions-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    min-width: 200px;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 0.25rem;
+}
+
+.bulk-actions-dropdown .dropdown-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.bulk-actions-dropdown .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.bulk-actions-dropdown .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+/* Modal Enhancements */
+.modal-lg {
+    max-width: 900px;
+}
+
+.modal-body .row {
+    margin: 0;
+}
+
+.modal-body .col-md-6 {
+    padding: 0.75rem;
+}
+
+/* Table Styles in Modals */
+.table-sm td {
+    padding: 0.5rem 0.75rem;
+    border-top: 1px solid #f8f9fa;
+}
+
+.table-sm td:first-child {
+    font-weight: 500;
+    color: #495057;
+    width: 40%;
+}
+
+/* Progress Bar Enhancements */
+.progress {
+    height: 0.75rem;
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+.progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+}
